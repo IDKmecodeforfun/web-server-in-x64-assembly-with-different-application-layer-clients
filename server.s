@@ -59,6 +59,14 @@ loop:
     cmp rax, 0x00
     je child_process
 
+    # waiting for the child process
+    mov rdi, -0x1
+    mov rsi, 0x00
+    mov rdx, 0x00
+    mov r10, 0x00
+    mov rax, 0x3d
+    syscall
+
     # closing the client for the parent process
     mov rdi, r13
     mov rax, 0x03
